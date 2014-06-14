@@ -29,12 +29,12 @@ namespace ObjectChauffer
                 result.Add(string.Concat("With", prop.Name), targetAction);
             }
 
-            CreateBuildFunciton(result, targetInstance);
+            CreateBuildFunction(result, targetInstance);
 
             return result;
         }
 
-        private static void CreateBuildFunciton<T>(IDictionary<string, object> expando, T instance)
+        private static void CreateBuildFunction<T>(IDictionary<string, object> expando, T instance)
         {
             Func<T> buildFunc = () => instance;
 
