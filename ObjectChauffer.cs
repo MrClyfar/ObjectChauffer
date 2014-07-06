@@ -17,6 +17,15 @@ namespace ObjectChauffer
 
             PropertyInfo[] properties = targetType.GetProperties(BindingFlags.Public | BindingFlags.Instance);
 
+            CreateWithMethodsForProperties<T>(result, targetInstance, properties);
+
+            CreateBuildFunction(result, targetInstance);
+
+            return result;
+        }
+
+        private static void CreateWithMethodsForProperties<T>(IDictionary<string, object> result, T targetInstance, PropertyInfo[] properties)
+        {
             foreach (var prop in properties)
             {
                 Func<object, object> targetAction = (param) =>
@@ -28,10 +37,6 @@ namespace ObjectChauffer
 
                 result.Add(string.Concat("With", prop.Name), targetAction);
             }
-
-            CreateBuildFunction(result, targetInstance);
-
-            return result;
         }
 
         private static void CreateBuildFunction<T>(IDictionary<string, object> expando, T instance)
