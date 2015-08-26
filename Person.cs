@@ -1,7 +1,7 @@
-﻿using System.Collections.Generic;
-
-namespace ObjectChauffer
+﻿namespace ObjectChauffer
 {
+    using System.Collections.Generic;
+
     public class Person
     {
         public int Age { get; set; }
