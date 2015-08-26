@@ -4,6 +4,9 @@
 
     public class Person
     {
+        /// <summary>
+        /// Gets or sets the person's age.
+        /// </summary>
         public int Age { get; set; }
 
         public string FirstName { get; set; }
